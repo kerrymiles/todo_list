@@ -15,19 +15,13 @@ const useTasks = () => {
         console.log(task)
         setTasks((prevTasks) => {
             const updatedTasks = [...prevTasks, task];
-            console.log(updatedTasks);
+            console.log('upTasks', updatedTasks);
             return updatedTasks;
             }
         )
+        window.location.reload();
     };
 
-    const editTask = (taskId: number, newTask: Task) => {
-        setTasks((prevTasks) =>
-            prevTasks.map((task) =>
-                task.id === taskId ? newTask : task
-            )
-        );
-    };
 
     const removeTask = (taskId: number) => {
         setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
@@ -36,7 +30,6 @@ const useTasks = () => {
     return {
         tasks,
         addTask,
-        editTask,
         removeTask,
     };
 };

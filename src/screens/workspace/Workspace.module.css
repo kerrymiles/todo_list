@@ -81,3 +81,21 @@
     }
 
 }
+
+.btns {
+    font-size: 14px;
+}
+
+.control .create .btns {
+    text-decoration: none;
+    color: #f3efef;
+    margin-left: 36px;
+    cursor: pointer;
+    border: none;
+    background: inherit;
+    color: #f3efef;
+}
+
+.control .create .btns:hover {
+    color: #d1d1d1;
+}

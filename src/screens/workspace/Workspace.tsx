@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import styles from './Workspace.module.css';
 import UploadTaskPage from './upload-task-page/UploadTaskPage';
 import FullscreenMenuBtn from '../../components/fullscreen-menu-btn/FullscreenMenuBtn';
-
+import { Link } from 'react-router-dom';
 const Workspace = () => {
     const [isFullscreenMenu, setIsFullscreenMenu] = useState<boolean>(false);
     const [changeColor, setChangeColor] = useState<boolean>(false);
@@ -32,8 +32,8 @@ const Workspace = () => {
                                 <button className={styles.btns}>Search</button>
                             </div>
                             <div className={styles.create}>
-                                <img src="/ui-kit/add_icon.svg" alt="" />
-                                <button className={styles.btns}>Add task</button>
+                                <img src="/ui-kit/keyboard_return.svg" alt="" />
+                                <Link to={'/'} className={styles.btns}>Return</Link>
                             </div>
                             <div className={styles.settings}>
                                 <img src="/ui-kit/settings_icon.svg" alt="" />

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import styles from './UploadTaskPage.module.css'
 
 import useTasks from '../../../hooks/useTasks'
@@ -7,7 +7,8 @@ import TaskPanel from '../../../components/task-panel/TaskPanel'
 const UploadTaskPage = () => {
     const [showTaskPanel, setShowTaskPanel] = useState<boolean>(false);
 
-    const { tasks } = useTasks();
+    const { tasks, removeTask } = useTasks()
+    console.log('tasks', tasks)
 
     const handleOpenTaskPanel = useCallback((): void => {
         setShowTaskPanel(true);
@@ -28,13 +29,23 @@ const UploadTaskPage = () => {
             </div>
             <hr style={{ color: '#222', width: '200px' }}></hr>
             <div className={styles.tasks_list}>
+                <ul className={styles.space_tasks}>    
+
                 {tasks.map((value, index) => {
                     return (
-                        <div key={index}>    
-                            <div>{value.title}</div>
-                        </div>
+                            <li key={index}>
+                                {value.title}
+                                <button 
+                                className={styles.remove_btn} 
+                                aria-label='Delete task'
+                                onClick={() => removeTask(value.id)}
+                                >
+                                    <img src="/ui-kit/remove_icon.svg" alt="" />
+                                </button>
+                            </li>
                     )
                 })}
+                </ul>
             </div>
         </div>
     )
