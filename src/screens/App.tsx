@@ -4,6 +4,7 @@ import Home from './home/Home';
 import Workspace from './workspace/Workspace';
 import Header from './header/Header';
 import Footer from './footer/Footer';
+import Docs from './docs/Docs';
 
 const withCovers = (Component: React.ComponentType) => {
     return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
                 <Route path="/" element={withCovers(Home)} />
                 <Route path="/home" element={withCovers(Home)} />
                 <Route path="/workspace" Component={Workspace} />
+                <Route path='/product/docs' Component={Docs} />
             </Routes>
         </Router>
     );
