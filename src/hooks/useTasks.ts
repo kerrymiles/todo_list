@@ -1,53 +1,44 @@
 import { useState, useEffect } from "react";
-
 import { Task } from "../interfaces/interfaces";
 
 const useTasks = () => {
-    const [tasks, setTasks] = useState<Task[]>(
-        () => {
-            const tasks = localStorage.getItem('tasks');
-            return tasks? JSON.parse(tasks) : [];
-        }
-    );
+    const [tasks, setTasks] = useState<Task[]>(() => {
+        const savedTasks = localStorage.getItem('tasks');
+        return savedTasks ? JSON.parse(savedTasks) : [];
+    });
 
     useEffect(() => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
-        }, [tasks]
-    )
+    }, [tasks]);
 
     const addTask = (task: Task) => {
-        try {
-            setTasks((prevtasks) => [...prevtasks, task]);
-        } catch (err) {
-            console.log('Error to add task', err);
-        }
-    }
+        console.log(task)
+        setTasks((prevTasks) => {
+            const updatedTasks = [...prevTasks, task];
+            console.log(updatedTasks);
+            return updatedTasks;
+            }
+        )
+    };
 
     const editTask = (taskId: number, newTask: Task) => {
-        try {
-        setTasks((prevtasks) => 
-            prevtasks.map((task) => 
+        setTasks((prevTasks) =>
+            prevTasks.map((task) =>
                 task.id === taskId ? newTask : task
             )
-        )
-    } catch (err) {
-            console.log('Error to edit task', err);
-     }
-    }
+        );
+    };
 
     const removeTask = (taskId: number) => {
-        try {
-        setTasks((prevtasks) => prevtasks.filter((task) => task.id !== taskId));
-    } catch ( err ) {
-        console.log('Error to remove task', err);
-    }}
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    };
 
     return {
         tasks,
         addTask,
         editTask,
-        removeTask
+        removeTask,
     };
-}
+};
 
-export default useTasks
+export default useTasks;

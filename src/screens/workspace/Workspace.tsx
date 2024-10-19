@@ -1,14 +1,11 @@
-import React from 'react'
-import styles from './Workspace.module.css'
-import UploadTaskPage from './upload-task-page/UploadTaskPage'
-import FullscreenMenuBtn from '../../components/fullscreen-menu-btn/FullscreenMenuBtn'
-
-import { useState, useCallback } from 'react'
-import { Task } from '../../interfaces/interfaces'
+import React, { useCallback, useState } from 'react';
+import styles from './Workspace.module.css';
+import UploadTaskPage from './upload-task-page/UploadTaskPage';
+import FullscreenMenuBtn from '../../components/fullscreen-menu-btn/FullscreenMenuBtn';
 
 const Workspace = () => {
-    const [isFullscreenMenu, setIsFullscreenMenu] = useState<boolean>(false)
-    const [changeColor, setChangeColor] = useState<boolean>(false)
+    const [isFullscreenMenu, setIsFullscreenMenu] = useState<boolean>(false);
+    const [changeColor, setChangeColor] = useState<boolean>(false);
 
     const changeColorToggle = useCallback(() => {
         setChangeColor(prevState => !prevState);
@@ -21,48 +18,28 @@ const Workspace = () => {
         changeColorToggle();
     }, [changeColorToggle]);
 
-
-    const tasks: Task[] = (() => {
-        const tasksString = localStorage.getItem('tasks');
-        return tasksString ? JSON.parse(tasksString) : [];
-    })();
-
     return (
         <div className={styles.app}>
             <aside className={`${styles.aside} ${changeColor ? styles.active_aside : ''}`}>
-                <button className={`${styles['btn-menu_toggle']} ${changeColor ? styles['active-btn-menu-toggle'] : ''}`} onClick={ (event) => isFullscreenMenuToggle(event) }>
+                <button className={`${styles['btn-menu_toggle']} ${changeColor ? styles['active-btn-menu-toggle'] : ''}`} onClick={(event) => isFullscreenMenuToggle(event)}>
                     <FullscreenMenuBtn colorChange={changeColor} />
                 </button>
                 {isFullscreenMenu && (
                     <div className={`${styles.aside_bar} ${changeColor ? styles.active_aside_bar : ''}`}>
-                    <div className={styles.control}>
-                        <div className={styles.search}>
-                            <img src="/ui-kit/search_icon.svg" alt="" />
-                            <button className={styles.btns}>Search</button>
+                        <div className={styles.control}>
+                            <div className={styles.search}>
+                                <img src="/ui-kit/search_icon.svg" alt="" />
+                                <button className={styles.btns}>Search</button>
+                            </div>
+                            <div className={styles.create}>
+                                <img src="/ui-kit/add_icon.svg" alt="" />
+                                <button className={styles.btns}>Add task</button>
+                            </div>
+                            <div className={styles.settings}>
+                                <img src="/ui-kit/settings_icon.svg" alt="" />
+                                <button className={styles.btns}>Settings</button>
+                            </div>
                         </div>
-                        <div className={styles.create}>
-                            <img src="/ui-kit/add_icon.svg" alt="" />
-                            <button className={styles.btns}>Add task</button>
-                        </div>
-                        <div className={styles.settings}>
-                            <img src="/ui-kit/settings_icon.svg" alt="" />
-                            <button className={styles.btns}>Settings</button>
-                        </div>
-                    </div>
-
-                    
-                        {(() => {
-                            return (
-                                <div className={styles.tasks_div}>
-                                    {tasks.map((task) => (
-                                        <button key={task.id}>
-                                            {task.content.title}
-                                        </button>
-                                    ))}
-                                </div>
-                            );
-                        })()}
-                    
                     </div>
                 )}
             </aside>
@@ -70,7 +47,7 @@ const Workspace = () => {
                 <UploadTaskPage />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Workspace
+export default Workspace;

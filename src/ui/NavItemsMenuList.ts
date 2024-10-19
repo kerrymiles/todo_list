@@ -3,5 +3,3 @@ export const data = {
   1: ['Work', 'School', 'Life', 'Wiki'],
   2: ['Free', 'Premium']
 }
-
-console.log(data[1])

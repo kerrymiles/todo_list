@@ -1,0 +1,86 @@
+.addTaskPanel {
+    z-index: 99999;
+    position: absolute;
+    background: #f3efef;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    width: 75svw;
+    height: 60svh;
+    margin: auto;
+    padding-top: 50px;
+    padding-left: 5svw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+
+    & h1 {
+        color: #0a0aff;
+    }
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333; 
+    transition: color 0.3s ease;
+}
+
+.addTaskPanel__box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+
+    & input {
+        background-color: white;
+        color: #333; 
+        border: 2px solid #ccc;
+        padding: 11px 15px;
+        width: 300px;
+        max-width: 65svw;
+        margin-top: 25px;
+        font-size: 14px;
+        border-radius: 8px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    & input:focus {
+        border-color: #0a0aff; 
+        box-shadow: 0 0 8px rgba(76, 175, 80, 0.2); 
+        outline: none; 
+    }
+}
+
+.overlay {
+    display: block;
+    content: '';
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background: rgb(34, 34, 34, 0.08); 
+    z-index: 99999; 
+    pointer-events: none;
+}
+
+.btnCreate {
+    color: #f3efef;
+    padding: 10px 30px;
+    background: #0a0aff;
+    border-radius: 8px;
+}
+
+.btnCreate:hover {
+    background: #0a0aaa;
+}
+
+.tasks_div {
+    background: inherit;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+}
