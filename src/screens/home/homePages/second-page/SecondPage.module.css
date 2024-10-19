@@ -1,0 +1,109 @@
+.section_content:nth-child(n) {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(1fr, 3);
+    row-gap: 150px;
+    width: 100%;
+    margin-top: 150px;
+    height: auto;
+
+    border-radius: 50px;
+}
+
+.key_features {
+    padding: 50px 75px;
+    background-color: #0a0aff;
+    color: #f3efef;
+    border-radius: 50px;
+
+
+    & h3 {
+        font-size: clamp(0.9rem, 5svw, 1.4rem);
+        display: flex;
+        text-wrap: nowrap;
+        text-align: center;
+    }
+
+    & p {
+        font-size: clamp(0.7rem,3svw,1.2rem);
+    }
+
+    & .list_keysFeatures { 
+        padding-top: 50px;
+        display: flex; 
+        flex-wrap: wrap;
+        justify-content: space-around;
+        & li {
+            flex: 1 1 200px;
+            margin: 10px;
+            width: clamp(100px, 25svw, 250px);
+            padding: 15px 3svw;
+
+            background-color: #55ff00;
+            color: rgb(0, 17, 255);
+            border-radius: 15px;
+        }
+    }
+}
+
+.user_stories {
+    padding: 50px 10svw;
+    background-color: #f3efef;
+    color: #222;
+
+    & h2 {
+        font-size: clamp(25px, 8svw, 56px);
+    }
+
+    & .list_userStories {
+        display: flex; 
+        text-wrap: wrap;
+        flex-wrap: wrap;
+        gap: 25px;
+        padding-top: 50px;
+
+        & li {
+            max-width: 24svw;
+            min-width: 150px;
+            padding: 10px 1svw;
+            border: 2px solid #222;
+            border-radius: 18px;
+            text-align: center;
+            & h3 {
+                font-size: clamp(14px, 2svw, 1.2rem);
+            }
+            & p {
+                font-size: clamp(8px, 1.3svw, 0.9rem);
+            }
+        }
+    }
+}
+
+.howWorks {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 10svw;
+    background-color: #7404d0;
+    color: cyan;
+    & h2 {
+        font-size: clamp(25px, 8svw, 56px);
+    }
+
+    & .steps {
+        display: flex;
+        gap: 20px;
+
+        & .step {
+            padding: 15px 25px;
+            border-radius: 22px;
+            
+            & h3 {
+                font-size: clamp(16px, 4svw, 2rem);
+            }
+
+            & p {
+                font-size: clamp(14px, 1.2svw, 1.4rem);
+            }
+        }
+    }
+}

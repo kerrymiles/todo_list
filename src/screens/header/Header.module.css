@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: Poppins, serif;
+}
+
+li {
+    list-style: none;
+    & a {
+        text-decoration: none;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+    background: #f3efef;
+
+    & .right {
+        display: flex;
+        align-items: center;
+        gap: 2svw;
+        margin-left: 20%;
+        margin-right: calc(10px + 1.2svw);
+    }
+}
+
+.logo img {
+    z-index: 7;
+    margin-top: 10px;
+
+    width: 10svw;
+    min-width: 6.2svw;
+    margin-left: calc(10px + 1.2svw);
+}
+
+@media (max-width: 1080px) {
+    .right .nav,
+    .right .login {
+        display: none;
+    }
+    .logo img {
+        width: 15svw;
+        min-width: 130px;
+    }
+}
+
+@media (min-width: 1080px) {
+    .logo {
+        margin-left: 9.2svw;
+    }
+    .header {
+        & .right {
+            margin-right: 9.2svw;
+        }
+    }
+    .mobile_menu {
+        display: none;
+    }
+}
+
+.nav {
+    & .nav_list {
+        display: flex;
+        font-weight: 500;
+        cursor: pointer
+    }
+}
+
+.login {
+    display: flex;
+    gap: 10px;
+
+    font-size: clamp(0.6em, 0.75em, 1.1em);
+
+    & a {
+        padding: 0.4rem 1.25rem;
+
+        background-color: #0a0aff;
+        color: #f3efef;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;;
+        text-wrap: nowrap;
+
+        cursor: pointer;
+    }
+
+    & a:hover {
+        background-color: #f3efef;
+        color: #0a0aff;
+        border: 1px #0a0aff solid;
+
+        transition: 0.5s;
+    }
+}
+
+@media (min-width: 1440px) {
+    .login {
+        font-size: calc(0.75 * 1.3svw);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header {
+    z-index: 1000;
+}
+
+.mobile_menu {
+    z-index: 10001;
+}
+
+.btn-menu_toggle {
+    position: relative;
+    margin-top: 10px;
+    margin-right: calc(10px + 1.2svw);
+    z-index: 10001; 
+
+    border: none;
+}
+
+.active-btn-menu-toggle {
+    background-color: #0a0aff;
+}

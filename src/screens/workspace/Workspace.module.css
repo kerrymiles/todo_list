@@ -1,0 +1,83 @@
+.app {
+    display: flex;
+}
+
+.aside {
+    background: #f3efef;
+    height: 100vh;
+    position: relative;
+
+    & .active_aside_bar {
+        background: #f3efef;
+        width: 250px;
+        left: -250px;
+    }
+}
+
+
+.active_aside {
+    background: #0a0aff!important;
+
+    & .active_aside_bar {
+        background: #0a0aff!important;
+        left: 0;
+    }
+}
+
+.task_space {
+    width: 100%;
+    background: #f3efef;
+    padding-top: 50px;
+    padding-left: 150px;
+}
+
+.btn-menu_toggle {
+    position: relative;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: calc(10px + 1.2svw);
+    z-index: 10001; 
+
+    border: none;
+}
+
+.active-btn-menu-toggle {
+    background-color: #0a0aff;
+}
+
+.control,
+.tasks_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #222;
+    margin-top: 50px;
+    gap: 10px;
+    background: inherit;
+}
+
+.control button {
+    cursor: pointer;
+    border: none;
+    background: inherit;
+    color: #f3efef;
+}
+.control button:hover {
+    color: #d1d1d1;
+}
+
+.control:nth-child(n) {
+    display: flex;
+    justify-content: center;
+    width: 150px;
+    margin-top: 10px;
+    margin-left: 30px;
+
+    & img {
+        position: absolute;
+    }
+    & button {
+        margin-left: 36px;
+    }
+
+}
