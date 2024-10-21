@@ -1,0 +1,27 @@
+.docs {
+    padding-top: 50px;
+    padding-left: 10svw;
+    color: #0a0aff;
+}
+
+.docs_wrapper h2 {
+    font-size: xx-large;
+}
+
+.docs_wrapper article {
+    margin-top: 30px;
+
+    & h3 {
+        font-size: larger;
+    }
+    & p {
+        font-size: large;
+    }
+    & img {
+        border: 1px solid #0a0aff;
+        margin-top: 30px;
+        width: 80svw;
+        height: auto;
+        margin-bottom: 10px;
+    }
+}

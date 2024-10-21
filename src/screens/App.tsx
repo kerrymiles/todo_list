@@ -23,7 +23,7 @@ const App: React.FC = () => {
                 <Route path="/" element={withCovers(Home)} />
                 <Route path="/home" element={withCovers(Home)} />
                 <Route path="/workspace" Component={Workspace} />
-                <Route path='/product/docs' Component={Docs} />
+                <Route path='/product/docs' element={withCovers(Docs)} />
             </Routes>
         </Router>
     );

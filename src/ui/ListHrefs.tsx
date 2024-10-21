@@ -11,7 +11,7 @@ const ListHrefs: React.FC<ListString> = ({ arr }) => {
         <div className={styles.popupMenu__FullscreenMenu}>
         {arr.map((list, index) => (
             <a href="#" key={index}>
-            {list}
+                {list}
             </a>
         ))}
         </div>

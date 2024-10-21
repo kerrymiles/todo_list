@@ -29,3 +29,9 @@
         color: #d1d1d1;
     }
 }
+
+@media (max-width: 330px) {
+    .nav_footer {
+        flex-direction: column;
+    }
+}
