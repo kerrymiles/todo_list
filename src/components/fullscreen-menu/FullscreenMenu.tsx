@@ -2,7 +2,13 @@ import React, {useState, useCallback} from 'react'
 
 import styles from './FullscreenMenu.module.css'
 import ListHrefs from '../../ui/ListHrefs'
-import {data} from '../../ui/NavItemsMenuList'
+
+const data: {[key: string]: string[]}[] = [
+    {'Product': ['AI', 'Docs', 'Plugins']},              // для "Product"
+    {'Templates': ['Work', 'School', 'Life', 'Wiki']},     // для "Templates"
+    {'Pricing': ['Free', 'Premium']}                     // для "Pricing"
+];
+
 
 const itemMenu: string[] = [
     'Product',
@@ -29,7 +35,7 @@ const FullscreenMenu: React.FC = () => {
                         >
                             {item}
                         </button>
-                        {arr[index] && <ListHrefs arr={data[index]} />}
+                        {arr[index] && (data[index])[item] && (<ListHrefs arr={data[index][item] as string[]} firstName={item} />)}
                     </div>
                 </React.Fragment>
             ))}
